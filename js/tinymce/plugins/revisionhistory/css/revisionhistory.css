@@ -1,0 +1,49 @@
+/*!
+ * Tiny Comments plugin
+ *
+ * Copyright (c) 2023 Ephox Corporation DBA Tiny Technologies, Inc.
+ * Licensed under the Tiny commercial license. See https://www.tiny.cloud/legal/
+ *
+ * Version: 7.3.0-86
+ */
+ body .tox-revisionhistory__annotation--added {
+    background-color: rgba(73,246,96,0.75) !important;
+    outline: 2px solid rgba(10,207,36,0.75) !important;
+    text-decoration: none
+}
+
+body .tox-revisionhistory__annotation--added * {
+    text-decoration: none
+}
+
+body .tox-revisionhistory__annotation--added img {
+    outline: 2px solid rgba(10,207,36,0.75) !important
+}
+
+body .tox-revisionhistory__annotation--modified {
+    background-color: rgba(247,236,110,0.75) !important;
+    outline: 2px solid rgba(242,223,13,0.75) !important;
+    text-decoration: none
+}
+
+body .tox-revisionhistory__annotation--modified * {
+    text-decoration: none
+}
+
+body .tox-revisionhistory__annotation--modified img {
+    outline: 2px solid rgba(242,223,13,0.75) !important
+}
+
+body .tox-revisionhistory__annotation--removed {
+    background-color: rgba(245,119,123,0.75) !important;
+    outline: 2px solid rgba(238,24,31,0.75) !important;
+    text-decoration: none
+}
+
+body .tox-revisionhistory__annotation--removed * {
+    text-decoration: none
+}
+
+body .tox-revisionhistory__annotation--removed img {
+    outline: 2px solid rgba(238,24,31,0.75) !important
+}
