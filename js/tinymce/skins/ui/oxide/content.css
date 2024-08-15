@@ -12,10 +12,6 @@
   user-select: all;
   width: 8px !important;
 }
-.tox-statusbar__branding {
-  display: none !important;
-}
-
 .mce-content-body .mce-item-anchor:not(:empty) {
   background-position-x: 2px;
   display: inline-block;
