@@ -448,7 +448,7 @@ tinymce.addI18n("zh_CN", {
     "Warn": "\u8b66\u544a",
     "White": "\u767d\u8272",
     "Width": "\u5bbd\u5ea6",
-    "Word count": "\u5b57\u6570",
+    "Word count": "\u7EDF\u8BA1",
     "Words": "\u5b57\u6570",
     "Words: {0}": "\u5b57\u6570\uff1a{0}",
     "Xi": "Xi (\u039e)",
