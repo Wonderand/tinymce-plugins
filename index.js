@@ -12,6 +12,15 @@ tinymce.init({
     tinycomments_mode: 'embedded',
     revisionhistory_display_author: true,
     branding: false,
+    statusbar: true, // 状态栏
+    // highlight_on_focus: true, // 聚焦时高亮
+    // link_context_toolbar: true, // 链接工具栏
+    // toolbar_location: 'bottom', //默认位于内容区域上方。
+    toolbar_sticky: true, // 粘性工具栏
+    toolbar_persist: true, // 持久工具栏
+    help_accessibility: false, // 帮助访问性
+    // object_resizing: false, // 禁用内容编辑器中的对象调整大小。
+    // save_enablewhendirty: false, //允许您禁用保存按钮，直到对编辑器的内容进行修改。
     // placeholder: '在这里输入文字',
     advtemplate_templates,
     revisionhistory_fetch,
