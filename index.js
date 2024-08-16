@@ -29,5 +29,42 @@ tinymce.init({
             // 将所有图片内容提添加最大宽度为800px
             editor.dom.setStyles(editor.dom.select('img'), { 'max-width': '626px', 'height': 'auto' })
         })
+    },
+    save_onsavecallback: (editor) => {
+        console.log('Saved');
+        // tinymce.activeEditor.windowManager.alert('保存成功！');
+        tinymce.activeEditor.notificationManager.open({
+            text: '正在保存...',
+            type: 'info',
+        });
+        $.ajax({
+            url: '/api/save',
+            type: 'post',
+            data: {
+                content: editor.getContent({ format: 'raw' })
+            },
+            success: (res) => {
+                console.log(res)
+                tinymce.activeEditor.notificationManager.open({
+                    text: '保存成功！',
+                    type: 'success',
+                    timeout: 2000
+                })
+                setTimeout(() => {
+                    tinymce.activeEditor.notificationManager.close()
+                }, 2000)
+            },
+            error: (err) => {
+                console.log(err)
+                tinymce.activeEditor.notificationManager.open({
+                    text: '保存失败！',
+                    type: 'error',
+                    timeout: 2000
+                })
+                setTimeout(() => {
+                    tinymce.activeEditor.notificationManager.close()
+                }, 2000)
+            }
+        })
     }
 })
