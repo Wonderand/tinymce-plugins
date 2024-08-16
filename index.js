@@ -7,18 +7,22 @@ tinymce.init({
     content_css: 'fabric',
     height: window.innerHeight - 20,
     mathjax: { lib: './mathjax-3.2.2/package/es5/tex-mml-chtml.js' },
+   
+    toolbar_mode: 'sliding',
+    tinycomments_mode: 'embedded',
+    revisionhistory_display_author: true,
+    branding: false,
+    // placeholder: '在这里输入文字',
+    advtemplate_templates,
     revisionhistory_fetch,
     revisionhistory_fetch_revision,
     revisionhistory_author: {
         id: 'john.doe',
         name: 'John Doe'
-    },
-    advtemplate_templates,
-    toolbar_mode: 'sliding',
-    tinycomments_mode: 'embedded',
-    revisionhistory_display_author: true,
-    branding: false,
+    }, 
     setup: (editor) => {
-
+        editor.on('init', () => {
+            console.log('init')
+        })
     }
 })
