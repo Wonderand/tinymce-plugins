@@ -7,7 +7,7 @@ tinymce.init({
     content_css: 'fabric',
     height: window.innerHeight - 20,
     mathjax: { lib: './mathjax-3.2.2/package/es5/tex-mml-chtml.js' },
-   
+
     toolbar_mode: 'sliding',
     tinycomments_mode: 'embedded',
     revisionhistory_display_author: true,
@@ -19,10 +19,15 @@ tinymce.init({
     revisionhistory_author: {
         id: 'john.doe',
         name: 'John Doe'
-    }, 
+    },
     setup: (editor) => {
         editor.on('init', () => {
             console.log('init')
+        })
+        editor.on('SetContent', (e) => {
+            console.log('setcontent')
+            // 将所有图片内容提添加最大宽度为800px
+            editor.dom.setStyles(editor.dom.select('img'), { 'max-width': '626px', 'height': 'auto' })
         })
     }
 })
