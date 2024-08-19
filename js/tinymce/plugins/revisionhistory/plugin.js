@@ -3740,6 +3740,8 @@
                             t.dispatch("RevisionHistoryOpen")
                         }
                         )(t)))
+                        let btn = document.querySelector(".tox-revisionhistory__container .tox-view__toolbar .tox-button--secondary");
+                        console.log(btn)
                     }
                     ))
                 }

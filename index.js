@@ -38,6 +38,22 @@ tinymce.init({
             // 将所有图片内容提添加最大宽度为800px
             editor.dom.setStyles(editor.dom.select('img'), { 'max-width': '626px', 'height': 'auto' })
         })
+        // 添加自定义按钮
+        editor.ui.registry.addButton('revisionhistoryCustomButton', {
+            tooltip: 'Revision history',
+            icon: 'revision-history',
+            onAction: function () {
+                tinymce.activeEditor.execCommand('revisionHistory');
+                // 获取编辑器的容器元素
+                let btn = document.querySelector('.tox-revisionhistory__container .tox-view__toolbar .tox-button--secondary');
+                console.log(btn)
+                var editorContainer = editor.getContainer();
+                // 设置编辑器容器的样式
+                editorContainer.style.backgroundColor = '#f0f0f0';  // 设置背景色
+                editorContainer.style.border = '2px solid #ff5733';  // 设置边框
+                console.log(editorContainer)
+            }
+        });
     },
     save_onsavecallback: (editor) => {
         console.log('Saved');
