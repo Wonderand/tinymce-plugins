@@ -1,7 +1,17 @@
+// 创建一个简单的插件
+const TestPlugin = (ed, url) => {
+    ed.on('click', (e) => {
+        // ed.windowManager.alert('Hello World!');
+    });
+};
+
+// 使用添加方法注册插件
+tinymce.PluginManager.add('test', TestPlugin);
+tinymce.ScriptLoader.load('somescript.js');
 tinymce.init({
     selector: '#editor',
-    plugins: 'preview powerpaste casechange import_word importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link math media mediaembed codesample table charmap pagebreak nonbreaking anchor tableofcontents insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker editimage help formatpainter permanentpen pageembed charmap tinycomments mentions quickbars linkchecker emoticons advtable footnotes mergetags autocorrect typography advtemplate markdown revisionhistory kityformula-editor mathjax indent2em',
-    toolbar: "undo redo | revisionhistory tableofcontents permanentpen | aidialog aishortcuts | blocks fontsizeinput | bold italic | align numlist bullist | link image | table math kityformula-editor media pageembed | lineheight indent2em outdent indent | strikethrough forecolor backcolor formatpainter removeformat | charmap emoticons checklist | code fullscreen preview | save print import_word | pagebreak anchor codesample footnotes mergetags | addtemplate inserttemplate | addcomment showcomments | ltr rtl casechange | spellcheckdialog a11ycheck", // Note: if a toolbar item requires a plugin, the item will not present in the toolbar if the plugin is not also loaded.
+    plugins: 'test preview powerpaste casechange import_word importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link math media mediaembed codesample table charmap pagebreak nonbreaking anchor tableofcontents insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker editimage help formatpainter permanentpen pageembed charmap tinycomments mentions quickbars linkchecker emoticons advtable footnotes mergetags autocorrect typography advtemplate markdown revisionhistory kityformula-editor mathjax indent2em',
+    toolbar: 'undo redo | revisionhistory tableofcontents permanentpen | aidialog aishortcuts | blocks fontsizeinput | bold italic | align numlist bullist | link image | table math kityformula-editor media pageembed | lineheight indent2em outdent indent | strikethrough forecolor backcolor formatpainter removeformat | charmap emoticons checklist | code fullscreen preview | save print import_word | pagebreak anchor codesample footnotes mergetags | addtemplate inserttemplate | addcomment showcomments | ltr rtl casechange | spellcheckdialog a11ycheck', // Note: if a toolbar item requires a plugin, the item will not present in the toolbar if the plugin is not also loaded.
     language: 'zh_CN',
     skin: 'fabric',
     content_css: 'fabric',
@@ -32,11 +42,27 @@ tinymce.init({
     setup: (editor) => {
         editor.on('init', () => {
             console.log('init')
+            fetch(baseUrl + '/api/notToken')  // 异步获取内容
+                .then(response => response.text())
+                .then(data => {
+                    let content = JSON.parse(data)
+                    editor.setContent(content.data); // 动态设置内容
+                });
+            // editor.insertContent('<h1>Hello World!</h1>')
         })
         editor.on('SetContent', (e) => {
             console.log('setcontent')
             // 将所有图片内容提添加最大宽度为800px
             editor.dom.setStyles(editor.dom.select('img'), { 'max-width': '626px', 'height': 'auto' })
+            // 给所有p标签添加首行缩进
+            editor.dom.setStyles(editor.dom.select('p'), { 'text-indent': '2em' })
+        })
+        editor.on('change', () => {
+            tinymce.activeEditor.notificationManager.open({
+                text: '正在保存...',
+                type: 'info',
+                timeout: 2000
+            });
         })
         // 添加自定义按钮
         editor.ui.registry.addButton('revisionhistoryCustomButton', {

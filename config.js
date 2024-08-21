@@ -241,3 +241,4 @@ const advtemplate_templates = [
         ]
     }
 ];
+const baseUrl = 'http://localhost:8081/renren-api'
