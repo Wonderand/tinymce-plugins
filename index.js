@@ -26,6 +26,8 @@ tinymce.init({
     // highlight_on_focus: true, // 聚焦时高亮
     // link_context_toolbar: true, // 链接工具栏
     // toolbar_location: 'bottom', //默认位于内容区域上方。
+    relative_urls: false,      // 禁止使用相对路径
+    remove_script_host: false, // 保留主机名和协议
     toolbar_sticky: true, // 粘性工具栏
     toolbar_persist: true, // 持久工具栏
     help_accessibility: false, // 帮助访问性
