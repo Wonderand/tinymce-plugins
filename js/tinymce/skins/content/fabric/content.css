@@ -874,5 +874,54 @@ hr {
     margin-right: 1.5rem;
     padding-right: 1rem
 }
-
+/* 对于 Chrome, Edge, 和 Safari */
+::-webkit-scrollbar {
+    width: 8px; /* 设置滚动条的宽度 */
+    height: 8px; /* 设置水平滚动条的高度 */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #888; /* 滚动条的颜色 */
+    border-radius: 10px; /* 滚动条的圆角 */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* 滚动条在鼠标悬停时的颜色 */
+  }
+  body {
+    position: relative;
+  }
+  
+  body::before {
+    content: '';
+    position: absolute;
+    padding: 10px;
+    font-size: 12px;
+    z-index: 10;
+    top: 35px;
+    left: 73px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAAAsCAYAAADhJn/jAAAA8klEQVRoQ+3awQ3DMAxDUWVaz+RpW3QD8aNEe/g5k4rxrFvyjE9V4KlOd/gIXF4CgQUuC5THu8EClwXK491ggcsC5fFu8L8A33tf5xwvZGYSizVYMrS8FD8fn1gIDK5LYICWVAROtEBWYICWVAROtEBWYICWVAROtEBWYICWVAROtEBWYICWVAROtEBWYICWVAROtEBWYICWVAROtEBWYICWVAROtEBWYICWVAROtEBWYICWVAROtEC2BgzOsq58+5eAD8L65SC4Pe/6qzI4g5UZf8Bub4EbXBYWWOCyQHm8GyxwWaA83g0WuCxQHu8Gl4HfECPALYMB9b4AAAAASUVORK5CYII=);
+    background-position: -54px -10px;
+  }
+  
+  body::after {
+    content: '';
+    position: absolute;
+    padding: 10px;
+    font-size: 12px;
+    z-index: 10;
+    top: 35px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAAAsCAYAAADhJn/jAAAA8klEQVRoQ+3awQ3DMAxDUWVaz+RpW3QD8aNEe/g5k4rxrFvyjE9V4KlOd/gIXF4CgQUuC5THu8EClwXK491ggcsC5fFu8L8A33tf5xwvZGYSizVYMrS8FD8fn1gIDK5LYICWVAROtEBWYICWVAROtEBWYICWVAROtEBWYICWVAROtEBWYICWVAROtEBWYICWVAROtEBWYICWVAROtEBWYICWVAROtEBWYICWVAROtEBWYICWVAROtEC2BgzOsq58+5eAD8L65SC4Pe/6qzI4g5UZf8Bub4EbXBYWWOCyQHm8GyxwWaA83g0WuCxQHu8Gl4HfECPALYMB9b4AAAAASUVORK5CYII=);
+    background-position: -10px -10px;
+    left: auto;
+    right: 53px;
+  }
+  
+  
 /*# sourceMappingURL=content.min.css.map */

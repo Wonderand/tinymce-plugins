@@ -59,13 +59,13 @@ tinymce.init({
             // 给所有p标签添加首行缩进
             editor.dom.setStyles(editor.dom.select('p'), { 'text-indent': '2em' })
         })
-        editor.on('change', () => {
-            tinymce.activeEditor.notificationManager.open({
-                text: '正在保存...',
-                type: 'info',
-                timeout: 2000
-            });
-        })
+        // editor.on('change', () => {
+        //     tinymce.activeEditor.notificationManager.open({
+        //         text: '正在保存...',
+        //         type: 'info',
+        //         timeout: 2000
+        //     });
+        // })
         // 添加自定义按钮
         editor.ui.registry.addButton('revisionhistoryCustomButton', {
             tooltip: 'Revision history',
@@ -119,5 +119,11 @@ tinymce.init({
                 }, 2000)
             }
         })
+    },
+    init_instance_callback: (editor) => { //初始化结束
+        // editor.off('keydown', function () {
+        //     var _curNode = editor.selection.getNode();
+        //     console.log(_curNode.nodeName)
+        // });
     }
 })
