@@ -22,6 +22,7 @@ tinymce.init({
     tinycomments_mode: 'embedded',
     revisionhistory_display_author: true,
     branding: false,
+    draggable_modal: true, // 拖动式对话框
     statusbar: true, // 状态栏
     // highlight_on_focus: true, // 聚焦时高亮
     // link_context_toolbar: true, // 链接工具栏
@@ -125,5 +126,12 @@ tinymce.init({
         //     var _curNode = editor.selection.getNode();
         //     console.log(_curNode.nodeName)
         // });
-    }
+        editor.on('change', () => {
+            tinymce.activeEditor.notificationManager.open({
+                text: '正在保存...',
+                type: 'info',
+                timeout: 2000
+            });
+        })
+    },
 })
