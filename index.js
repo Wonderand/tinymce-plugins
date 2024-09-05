@@ -20,6 +20,7 @@ tinymce.init({
     mathjax: { lib: './mathjax-3.2.2/package/es5/tex-mml-chtml.js' },
     toolbar_mode: 'sliding',
     tinycomments_mode: 'embedded',
+    license_key: 'gpl',
     revisionhistory_display_author: true,
     branding: false,
     draggable_modal: true, // 拖动式对话框
