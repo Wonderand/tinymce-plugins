@@ -10,8 +10,8 @@ tinymce.PluginManager.add('test', TestPlugin);
 tinymce.ScriptLoader.load('somescript.js');
 tinymce.init({
     selector: '#editor',
-    plugins: 'test preview powerpaste casechange import_word importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link math media mediaembed codesample table charmap pagebreak nonbreaking anchor tableofcontents insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker editimage help formatpainter permanentpen pageembed charmap tinycomments mentions quickbars linkchecker emoticons advtable footnotes mergetags autocorrect typography advtemplate markdown revisionhistory kityformula-editor mathjax indent2em',
-    toolbar: 'undo redo | revisionhistory tableofcontents permanentpen | aidialog aishortcuts | blocks fontsizeinput | bold italic | align numlist bullist | link image | table math kityformula-editor media pageembed | lineheight indent2em outdent indent | strikethrough forecolor backcolor formatpainter removeformat | charmap emoticons checklist | code fullscreen preview | save print import_word | pagebreak anchor codesample footnotes mergetags | addtemplate inserttemplate | addcomment showcomments | ltr rtl casechange | spellcheckdialog a11ycheck', // Note: if a toolbar item requires a plugin, the item will not present in the toolbar if the plugin is not also loaded.
+    plugins: 'test tpLogicflow preview powerpaste casechange import_word importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link math media mediaembed codesample table charmap pagebreak nonbreaking anchor tableofcontents insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker editimage help formatpainter permanentpen pageembed charmap tinycomments mentions quickbars linkchecker emoticons advtable footnotes mergetags autocorrect typography advtemplate markdown revisionhistory kityformula-editor mathjax indent2em',
+    toolbar: 'undo redo | tpLogicflow revisionhistory tableofcontents permanentpen | aidialog aishortcuts | blocks fontsizeinput | bold italic | align numlist bullist | link image | table math kityformula-editor media pageembed | lineheight indent2em outdent indent | strikethrough forecolor backcolor formatpainter removeformat | charmap emoticons checklist | code fullscreen preview | save print import_word | pagebreak anchor codesample footnotes mergetags | addtemplate inserttemplate | addcomment showcomments | ltr rtl casechange | spellcheckdialog a11ycheck', // Note: if a toolbar item requires a plugin, the item will not present in the toolbar if the plugin is not also loaded.
     language: 'zh_CN',
     skin: 'fabric',
     content_css: 'fabric',
@@ -36,6 +36,8 @@ tinymce.init({
     // object_resizing: false, // 禁用内容编辑器中的对象调整大小。
     // save_enablewhendirty: false, //允许您禁用保存按钮，直到对编辑器的内容进行修改。
     // placeholder: '在这里输入文字',
+    valid_elements: '*[*]',  // 允许所有标签
+    extended_valid_elements: '+*[*],p[*],br[style],div[*],iframe[src|style|width|height],img[*],input[*],,h3[*]',  // 允许标签和属性
     advtemplate_templates,
     revisionhistory_fetch,
     revisionhistory_fetch_revision,

@@ -585,7 +585,7 @@
             return t.$emit("clear")
           }
         }
-      }, [t._v(" " + t._s(t.translateI18n("clear")) + " ")]), i("el-button", {
+      }, [t._v(" " + t._s(t.translateI18n("清除")) + " ")]), i("el-button", {
         staticClass: "el-color-dropdown__btn",
         attrs: {
           plain: "",
@@ -1645,7 +1645,7 @@
           "selection-active": t.selectionOpened
         },
         attrs: {
-          title: t.translateI18n("Area selection")
+          title: t.translateI18n("区域选择")
         },
         on: {
           click: function(e) {
@@ -1659,7 +1659,7 @@
       })], 1), i("div", {
         staticClass: "toolbar-item",
         attrs: {
-          title: t.translateI18n("Zoom in")
+          title: t.translateI18n("放大")
         },
         on: {
           click: function(e) {
@@ -1673,7 +1673,7 @@
       })], 1), i("div", {
         staticClass: "toolbar-item",
         attrs: {
-          title: t.translateI18n("Zoom out")
+          title: t.translateI18n("缩小")
         },
         on: {
           click: function(e) {
@@ -1978,7 +1978,7 @@
         staticClass: "diagram-sidebar"
       }, [i("div", [i("h1", {
         staticClass: "node-category-title"
-      }, [t._v(t._s(t.translateI18n("General graphics")) + " ")]), i("div", {
+      }, [t._v(t._s(t.translateI18n("一般图形")) + " ")]), i("div", {
         staticClass: "node-category"
       }, [i("div", {
         staticClass: "node-item",
@@ -2255,7 +2255,7 @@
         }
       })])])]), i("div", [i("h1", {
         staticClass: "node-category-title"
-      }, [t._v(t._s(t.translateI18n("Link line")))]), i("el-radio-group", {
+      }, [t._v(t._s(t.translateI18n("链接线")))]), i("el-radio-group", {
         attrs: {
           size: "mini"
         },
@@ -2271,7 +2271,7 @@
         }
       }, [i("el-radio-button", {
         attrs: {
-          title: t.translateI18n("Broken line"),
+          title: t.translateI18n("折线"),
           label: "pro-polyline"
         }
       }, [i("svg", {
@@ -2292,7 +2292,7 @@
         }
       })])]), i("el-radio-button", {
         attrs: {
-          title: t.translateI18n("Rounded poly line"),
+          title: t.translateI18n("圆形多线"),
           label: "curved-edge"
         }
       }, [i("svg", {
@@ -2313,7 +2313,7 @@
         }
       })])]), i("el-radio-button", {
         attrs: {
-          title: t.translateI18n("Straight line"),
+          title: t.translateI18n("直线"),
           label: "pro-line"
         }
       }, [i("svg", {
@@ -2334,7 +2334,7 @@
         }
       })])]), i("el-radio-button", {
         attrs: {
-          title: t.translateI18n("Curve"),
+          title: t.translateI18n("曲线"),
           label: "pro-bezier"
         }
       }, [i("svg", {
@@ -3383,7 +3383,7 @@
           d: "M234.0864 65.8432L51.2 234.0352l168.2432 182.8864 563.2 607.0784 182.8352-160.9216zM124.3648 234.0352l102.4-87.7568 102.4 102.4-102.4 87.7568-102.4-102.4z m248.6784 599.808l-29.2352 65.8432-65.8432 7.3216 51.2 43.8784L314.5216 1024l58.5216-29.2352L431.5648 1024l-7.3216-73.1648 43.8784-51.2-65.8432-7.3216-29.2352-58.5216z m-226.7648-299.8784l-43.8784 102.4-102.4 14.6432 73.1648 73.1648-14.6432 109.7216 87.7568-51.2 87.7568 51.2-14.6432-109.7216 73.1648-73.1648-102.4-14.6432zM819.2 0l-58.5216 131.6352L621.7216 153.6l102.4 102.4-21.9648 146.2784 124.3648-73.1648 124.3648 73.1648L928.9216 256 1024 153.6l-138.9568-21.9648L819.2 0z",
           "p-id": "21398"
         }
-      })])]), t._v(" " + t._s(t.translateI18n("Quick style")) + " ")]), i("div", {
+      })])]), t._v(" " + t._s(t.translateI18n("快速样式")) + " ")]), i("div", {
         staticClass: "short-styles"
       }, t._l(t.shortStyles, (function(e, a) {
           return i("div", {
@@ -3880,7 +3880,7 @@
         staticClass: "setting-item-box"
       }, [i("svg", {
         attrs: {
-          title: t.translateI18n("Row height"),
+          title: t.translateI18n("行高度"),
           width: "24",
           height: "24"
         }
@@ -3974,7 +3974,7 @@
         class: "bold" === t.style.fontWeight ? "checked" : "",
         attrs: {
           size: "small",
-          title: t.translateI18n("Bold")
+          title: t.translateI18n("粗体")
         },
         on: {
           click: t.$_changeFontWeight
@@ -3993,7 +3993,7 @@
         class: "underline" === t.style.textDecoration ? "checked" : "",
         attrs: {
           size: "small",
-          title: t.translateI18n("Underline")
+          title: t.translateI18n("下划线")
         },
         on: {
           click: t.$_changeTextDecoration
@@ -4012,7 +4012,7 @@
         class: "italic" === t.style.fontStyle ? "checked" : "",
         attrs: {
           size: "small",
-          title: t.translateI18n("Italic")
+          title: t.translateI18n("斜体")
         },
         on: {
           click: t.$_changeFontStyle
@@ -4044,7 +4044,7 @@
       }, [i("el-radio-button", {
         attrs: {
           label: "left",
-          title: t.translateI18n("Align left")
+          title: t.translateI18n("向左对齐")
         }
       }, [i("svg", {
         attrs: {
@@ -4059,7 +4059,7 @@
       })])]), i("el-radio-button", {
         attrs: {
           label: "center",
-          title: t.translateI18n("Align center")
+          title: t.translateI18n("对齐中心")
         }
       }, [i("svg", {
         attrs: {
@@ -4074,7 +4074,7 @@
       })])]), i("el-radio-button", {
         attrs: {
           label: "right",
-          title: t.translateI18n("Align right")
+          title: t.translateI18n("向右对齐")
         }
       }, [i("svg", {
         attrs: {
@@ -4181,7 +4181,7 @@
       }), i("el-button", {
         attrs: {
           size: "small",
-          title: t.translateI18n("Set to top")
+          title: t.translateI18n("设为顶部")
         },
         on: {
           click: function(e) {
@@ -4217,7 +4217,7 @@
       })])]), i("el-button", {
         attrs: {
           size: "small",
-          title: t.translateI18n("Set to bottom")
+          title: t.translateI18n("设置为底部")
         },
         on: {
           click: function(e) {
@@ -4243,7 +4243,7 @@
       })])]), i("el-button", {
         attrs: {
           size: "small",
-          title: t.translateI18n("Rotate counterclockwise")
+          title: t.translateI18n("逆时针旋转")
         },
         on: {
           click: function(e) {
@@ -4274,7 +4274,7 @@
       })])]), i("el-button", {
         attrs: {
           size: "small",
-          title: t.translateI18n("Rotate clockwise")
+          title: t.translateI18n("顺时针旋转")
         },
         on: {
           click: function(e) {
@@ -6960,26 +6960,26 @@
             i.setMenuConfig({
               nodeMenu: [{
                 icon: '<svg t="1658732914075" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2248" width="24" height="24"><path d="M977.454545 279.272727 47.109642 279.272727c-20.310744 0-46.263361-26.516804-46.263361-46.263361C0.282094 212.134435 26.798898 186.181818 47.109642 186.181818l186.181818 0L233.29146 93.090909C232.727273 32.722865 265.450138 0 325.818182 0l369.5427 0c59.803857 0 95.347658 32.722865 95.347658 93.090909L790.70854 186.181818l186.181818 0c20.310744 0 46.263361 26.516804 46.263361 46.263361C1023.717906 252.755923 997.765289 279.272727 977.454545 279.272727L977.454545 279.272727zM698.181818 139.918457c0-20.310744-26.516804-46.263361-46.263361-46.263361L372.64573 93.655096c-20.310744 0-46.263361 26.516804-46.263361 46.263361L326.382369 186.181818l372.363636 0L698.181818 139.918457 698.181818 139.918457zM465.736639 372.363636l0 465.454545L372.64573 837.818182 372.64573 372.363636 465.736639 372.363636 465.736639 372.363636zM651.918457 372.363636l0 465.454545L558.827548 837.818182 558.827548 372.363636 651.918457 372.363636 651.918457 372.363636zM186.463912 325.536088c20.310744 0 46.827548 26.516804 46.827548 46.263361l0 511.717906c0 20.310744 26.516804 46.263361 46.263361 46.263361l465.454545 0c20.310744 0 46.263361-26.516804 46.263361-46.263361L791.272727 372.363636c0-20.310744 26.516804-46.263361 46.263361-46.263361 20.310744 0 46.263361 26.516804 46.263361 46.263361l0 558.545455c0 60.368044-32.722865 93.090909-93.090909 93.090909l-558.545455 0c-60.368044 0-93.090909-32.722865-93.090909-93.090909L139.072176 372.363636C139.636364 352.052893 166.153168 325.536088 186.463912 325.536088L186.463912 325.536088zM186.463912 325.536088" p-id="2249" fill="#d81e06"></path></svg>',
-                text: this.translateI18n("Delete"),
+                text: this.translateI18n("删除"),
                 callback: function(t) {
                   i.deleteNode(t.id)
                 }
               }, {
                 icon: '<svg t="1658733114226" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3216" width="24" height="24"><path d="M275.3 608.2c0 17.6 14.4 32.1 32.1 32.1h409.2c17.7 0 32.1-14.4 32.1-32.1 0-17.6-14.4-32.1-32.1-32.1H307.4c-17.6 0-32.1 14.4-32.1 32.1zM498.5 320H307.4c-17.6 0-32.1 14.4-32.1 32.1 0 17.6 14.4 32.1 32.1 32.1h191.1c17.7 0 32.2-14.4 32.1-32.1 0-17.6-14.4-32.1-32.1-32.1zM848.9 132.5L579.8 401.6c-12.5 12.5-12.5 32.9 0.1 45.4 12.5 12.5 32.9 12.5 45.4 0l269-269.1c12.5-12.5 12.5-32.9 0-45.4s-32.9-12.5-45.4 0z" fill="#1296db" p-id="3217"></path><path d="M931.8 62.8a32.2 32.1 0 1 0 64.4 0 32.2 32.1 0 1 0-64.4 0Z" fill="#1296db" p-id="3218"></path><path d="M865.9 352c-17.8 0-32.2 14.4-32.2 32.1v0.1h-0.3v446.4c0 35.2-28.8 64-64 64H222.2c-35.2 0-64-28.8-64-64V192c0-35.2 28.8-64 64-64h482.4c17.6-0.3 31.7-14.5 31.7-32.1 0-17.7-14.4-32.1-32.2-32.1-0.8 0-1.6 0-2.4 0.1H226c-70.4 0-128 57.6-128 128v639.7c0 70.4 57.6 128 128 128h574c70.4 0 98-57.6 98-128V386.5c0.1-0.8 0.1-1.6 0.1-2.4 0-17.7-14.4-32.1-32.2-32.1z" fill="#1296db" p-id="3219"></path></svg>',
-                text: this.translateI18n("Edit Text"),
+                text: this.translateI18n("编辑文本"),
                 callback: function(t) {
                   i.graphModel.editText(t.id)
                 }
               }, {
                 icon: '<svg t="1658733333348" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4229" width="24" height="24"><path d="M512 113.777778h56.888889V0H512a113.777778 113.777778 0 0 0-113.777778 113.777778v56.888889h113.777778V113.777778zM910.222222 227.555556h113.777778v113.777777h-113.777778zM910.222222 0h-56.888889v113.777778h56.888889v56.888889h113.777778V113.777778a113.777778 113.777778 0 0 0-113.777778-113.777778zM910.222222 398.222222h113.777778v113.777778h-113.777778zM625.777778 0h170.666666v113.777778h-170.666666zM910.222222 625.777778h-56.888889v113.777778h56.888889a113.777778 113.777778 0 0 0 113.777778-113.777778v-56.888889h-113.777778v56.888889zM682.666667 398.222222a113.777778 113.777778 0 0 0-113.777778-113.777778H512V227.555556H398.222222v56.888888H113.777778a113.777778 113.777778 0 0 0-113.777778 113.777778v512a113.777778 113.777778 0 0 0 113.777778 113.777778h455.111111a113.777778 113.777778 0 0 0 113.777778-113.777778v-170.666666h113.777777v-113.777778h-113.777777V398.222222z m-113.777778 512H113.777778V398.222222h455.111111v512z" fill="#1E2330" p-id="4230"></path></svg>',
-                text: this.translateI18n("Copy"),
+                text: this.translateI18n("复制"),
                 callback: function(t) {
                   i.cloneNode(t.id)
                 }
               }],
               edgeMenu: [{
                 icon: '<svg t="1658732914075" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2248" width="24" height="24"><path d="M977.454545 279.272727 47.109642 279.272727c-20.310744 0-46.263361-26.516804-46.263361-46.263361C0.282094 212.134435 26.798898 186.181818 47.109642 186.181818l186.181818 0L233.29146 93.090909C232.727273 32.722865 265.450138 0 325.818182 0l369.5427 0c59.803857 0 95.347658 32.722865 95.347658 93.090909L790.70854 186.181818l186.181818 0c20.310744 0 46.263361 26.516804 46.263361 46.263361C1023.717906 252.755923 997.765289 279.272727 977.454545 279.272727L977.454545 279.272727zM698.181818 139.918457c0-20.310744-26.516804-46.263361-46.263361-46.263361L372.64573 93.655096c-20.310744 0-46.263361 26.516804-46.263361 46.263361L326.382369 186.181818l372.363636 0L698.181818 139.918457 698.181818 139.918457zM465.736639 372.363636l0 465.454545L372.64573 837.818182 372.64573 372.363636 465.736639 372.363636 465.736639 372.363636zM651.918457 372.363636l0 465.454545L558.827548 837.818182 558.827548 372.363636 651.918457 372.363636 651.918457 372.363636zM186.463912 325.536088c20.310744 0 46.827548 26.516804 46.827548 46.263361l0 511.717906c0 20.310744 26.516804 46.263361 46.263361 46.263361l465.454545 0c20.310744 0 46.263361-26.516804 46.263361-46.263361L791.272727 372.363636c0-20.310744 26.516804-46.263361 46.263361-46.263361 20.310744 0 46.263361 26.516804 46.263361 46.263361l0 558.545455c0 60.368044-32.722865 93.090909-93.090909 93.090909l-558.545455 0c-60.368044 0-93.090909-32.722865-93.090909-93.090909L139.072176 372.363636C139.636364 352.052893 166.153168 325.536088 186.463912 325.536088L186.463912 325.536088zM186.463912 325.536088" p-id="2249" fill="#d81e06"></path></svg>',
-                text: this.translateI18n("Delete"),
+                text: this.translateI18n("删除"),
                 callback: function(t) {
                   i.deleteEdge(t.id)
                 }
@@ -6992,7 +6992,7 @@
               }],
               selectionMenu: [{
                 icon: '<svg t="1658732914075" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2248" width="24" height="24"><path d="M977.454545 279.272727 47.109642 279.272727c-20.310744 0-46.263361-26.516804-46.263361-46.263361C0.282094 212.134435 26.798898 186.181818 47.109642 186.181818l186.181818 0L233.29146 93.090909C232.727273 32.722865 265.450138 0 325.818182 0l369.5427 0c59.803857 0 95.347658 32.722865 95.347658 93.090909L790.70854 186.181818l186.181818 0c20.310744 0 46.263361 26.516804 46.263361 46.263361C1023.717906 252.755923 997.765289 279.272727 977.454545 279.272727L977.454545 279.272727zM698.181818 139.918457c0-20.310744-26.516804-46.263361-46.263361-46.263361L372.64573 93.655096c-20.310744 0-46.263361 26.516804-46.263361 46.263361L326.382369 186.181818l372.363636 0L698.181818 139.918457 698.181818 139.918457zM465.736639 372.363636l0 465.454545L372.64573 837.818182 372.64573 372.363636 465.736639 372.363636 465.736639 372.363636zM651.918457 372.363636l0 465.454545L558.827548 837.818182 558.827548 372.363636 651.918457 372.363636 651.918457 372.363636zM186.463912 325.536088c20.310744 0 46.827548 26.516804 46.827548 46.263361l0 511.717906c0 20.310744 26.516804 46.263361 46.263361 46.263361l465.454545 0c20.310744 0 46.263361-26.516804 46.263361-46.263361L791.272727 372.363636c0-20.310744 26.516804-46.263361 46.263361-46.263361 20.310744 0 46.263361 26.516804 46.263361 46.263361l0 558.545455c0 60.368044-32.722865 93.090909-93.090909 93.090909l-558.545455 0c-60.368044 0-93.090909-32.722865-93.090909-93.090909L139.072176 372.363636C139.636364 352.052893 166.153168 325.536088 186.463912 325.536088L186.463912 325.536088zM186.463912 325.536088" p-id="2249" fill="#d81e06"></path></svg>',
-                text: this.translateI18n("Delete"),
+                text: this.translateI18n("删除"),
                 callback: function(t) {
                   i.clearSelectElements(),
                     t.edges.forEach((function(t) {
@@ -7100,13 +7100,8 @@
           return t.lf.clearSelectElements(),
             new Promise((function(e) {
                 t.lf.extension.snapshot.getCanvasDataBase().then((function(i) {
-                    t.updataSVG(null === i || void 0 === i ? void 0 : i.file, (function(t) {
-                        e({
-                          url: t,
-                          style: i.style
-                        })
-                      }
-                    ))
+                  console.log("i", i.file,e)
+                    blobToSVG(i.file,e,i,t);
                   }
                 ))
               }
@@ -7243,3 +7238,31 @@
   ebf6: function(t, e, i) {},
   f6ff: function(t, e, i) {}
 });
+function blobToSVG(blob,e,i,t) {
+  const reader = new FileReader();
+
+  reader.onload = function(event) {
+    // 获取到 SVG 内容的字符串
+    const svgString = event.target.result;
+
+    // 创建一个 DOMParser 来将字符串解析为一个 SVG 元素
+    const parser = new DOMParser();
+    const svgDoc = parser.parseFromString(svgString, "image/svg+xml");
+
+    // 将生成的 SVG 元素插入到 DOM 中，例如插入到某个 div 中
+    const svgElement = svgDoc.documentElement;
+    console.log("svgElement",svgElement)
+    // document.getElementById('svg-container').appendChild(svgElement);
+    t.updataSVG(null === i || void 0 === i ? void 0 : i.file, (function(t) {
+        e({
+          svg: `<svg style="${i.style}">${svgElement.innerHTML}</svg>`,
+          url: t,
+          style: i.style
+        })
+      }
+    ))
+  };
+
+  // 读取 Blob 的内容
+  reader.readAsText(blob);
+}
