@@ -45,6 +45,7 @@ tinymce.init({
         id: 'john.doe',
         name: 'John Doe'
     },
+    quickbars_selection_toolbar: 'bold italic | blocks | quicklink blockquote identselect', // 添加到快速按钮栏
     setup: (editor) => {
         editor.on('init', () => {
             console.log('init')
@@ -86,6 +87,86 @@ tinymce.init({
                 console.log(editorContainer)
             }
         });
+        editor.ui.registry.addMenuButton('identselect', {
+            // text: '缩进选择',
+            icon: 'indent2em',
+            tooltip: '首行缩进',
+            fetch: (callback) => {
+                const items = [
+                    {
+                        type: 'menuitem',
+                        text: '1em',
+                        onAction: (_) => {
+                            const node = editor.selection.getNode();
+                            if (node.nodeName === 'P') {
+                                editor.dom.setStyle(node, 'text-indent', '1em');
+                                editor.nodeChanged();
+                            }
+                        }
+                    },
+                    {
+                        type: 'menuitem',
+                        text: '2em',
+                        onAction: (_) => {
+                            const node = editor.selection.getNode();
+                            if (node.nodeName === 'P') {
+                                editor.dom.setStyle(node, 'text-indent', '2em');
+                                editor.nodeChanged();
+                            }
+                        }
+                    },
+                    {
+                        type: 'menuitem',
+                        text: '3em',
+                        onAction: (_) => {
+                            const node = editor.selection.getNode();
+                            if (node.nodeName === 'P') {
+                                editor.dom.setStyle(node, 'text-indent', '3em');
+                                editor.nodeChanged();
+                            }
+                        }
+                    },
+                    {
+                        type: 'menuitem',
+                        text: '4em',
+                        onAction: (_) => {
+                            const node = editor.selection.getNode();
+                            if (node.nodeName === 'P') {
+                                editor.dom.setStyle(node, 'text-indent', '4em');
+                            }
+                        }
+                    },
+                    {
+                        type: 'menuitem',
+                        text: '移除',
+                        onAction: (_) => {
+                            const node = editor.selection.getNode();
+                            if (node.nodeName === 'P') {
+                                editor.dom.setStyle(node, 'text-indent', '');
+                                editor.nodeChanged();
+                            }
+                        }
+                    },
+                    // {
+                    //     type: 'nestedmenuitem',
+                    //     text: 'Other formats',
+                    //     getSubmenuItems: () => [
+                    //         {
+                    //             type: 'menuitem',
+                    //             text: 'GMT',
+                    //             onAction: (_) => editor.insertContent(toGmtHtml(new Date()))
+                    //         },
+                    //         {
+                    //             type: 'menuitem',
+                    //             text: 'ISO',
+                    //             onAction: (_) => editor.insertContent(toIsoHtml(new Date()))
+                    //         }
+                    //     ]
+                    // }
+                ];
+                callback(items);
+            }
+        })
     },
     save_onsavecallback: (editor) => {
         console.log('Saved');
