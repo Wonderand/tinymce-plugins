@@ -30,6 +30,7 @@ tinymce.init({
     remove_script_host: false, // 保留主机名和协议
     toolbar_sticky: true, // 粘性工具栏
     toolbar_persist: true, // 持久工具栏
+    menubar: false,
     help_accessibility: false, // 帮助访问性
     // object_resizing: false, // 禁用内容编辑器中的对象调整大小。
     // save_enablewhendirty: false, //允许您禁用保存按钮，直到对编辑器的内容进行修改。
@@ -57,14 +58,14 @@ tinymce.init({
             // 将所有图片内容提添加最大宽度为800px
             editor.dom.setStyles(editor.dom.select('img'), { 'max-width': '626px', 'height': 'auto' })
             // 给所有p标签添加首行缩进
-            editor.dom.setStyles(editor.dom.select('p'), { 'text-indent': '2em' })
+            // editor.dom.setStyles(editor.dom.select('p'), { 'text-indent': '2em' })
         })
         editor.on('change', () => {
-            tinymce.activeEditor.notificationManager.open({
-                text: '正在保存...',
-                type: 'info',
-                timeout: 2000
-            });
+            // tinymce.activeEditor.notificationManager.open({
+            //     text: '正在保存...',
+            //     type: 'info',
+            //     timeout: 2000
+            // });
         })
         // 添加自定义按钮
         editor.ui.registry.addButton('revisionhistoryCustomButton', {
