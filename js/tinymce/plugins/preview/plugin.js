@@ -29,6 +29,8 @@
     containers.forEach(function (container) {
       container.style.fontSize = 'inherit';
     });
+    // 去除class为.selected的class
+    docFragment.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
     var modifiedStr = docFragment.innerHTML;
     var _a;
     let headHtml = '';

@@ -827,3 +827,49 @@ table {
 }
 
 /*# sourceMappingURL=content.min.css.map */
+.drag-element {
+    padding: 8px;
+    margin: 4px;
+    background-color: #f1f1f1;
+    border: 1px dashed #ddd;
+    cursor: pointer;
+}
+
+.selected {
+    outline: 2px dashed blue;
+}
+
+.resize-handle {
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    position: absolute;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.resize-handle.top-left {
+    top: -5px;
+    left: -5px;
+    cursor: nwse-resize;
+}
+
+.resize-handle.top-right {
+    top: -5px;
+    right: -5px;
+    cursor: nesw-resize;
+}
+
+.resize-handle.bottom-left {
+    bottom: -5px;
+    left: -5px;
+    cursor: nesw-resize;
+}
+
+.resize-handle.bottom-right {
+    bottom: -5px;
+    right: -5px;
+    cursor: nwse-resize;
+}
+
+
