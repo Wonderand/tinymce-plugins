@@ -20,13 +20,13 @@ tinymce.init({
         // 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css',
     ],
     font_family_formats: '微软雅黑=Microsoft YaHei;等线=DengXian;宋体=SimSun;仿宋=FangSong;黑体=SimHei;楷体=KaiTi;隶书=LiSu;幼圆=YouYuan;Andale Mono=andale mono; Arial=arial;Arial Black=arial black;Book Antiqua=antiqua;Comic Sans MS=comic sans ms;Courier New=courier new;Georgia=georgia;Helvetica=helvetica;Impact=impact;Symbol=symbol;Tahoma=tahoma;Terminal=terminal;Times New Roman=times new roman;Trebuchet MS=trebuchet ms;Verdana=verdana;Webdings=webdings;Wingdings=wingdings',
-    height: window.innerHeight - 20,
+    height: window.innerHeight,
     mathjax: {lib: './mathjax-3.2.2/package/es5/tex-mml-chtml.js'},
     toolbar_mode: 'sliding',
     tinycomments_mode: 'embedded',
     revisionhistory_display_author: true,
-    // branding: false,
-    statusbar: false, // 状态栏
+    branding: false,
+    statusbar: true, // 状态栏
     // highlight_on_focus: true, // 聚焦时高亮
     // link_context_toolbar: true, // 链接工具栏
     // toolbar_location: 'bottom', //默认位于内容区域上方。
@@ -71,7 +71,8 @@ tinymce.init({
                 '<div class="dpu8C _2kCxD">\n' +
                 '    <p style="text-align: justify;"><span style="font-size: 18px;">来源：央视新闻</span></p>\n' +
                 '    <p style="text-align: justify;">&nbsp;</p>\n' +
-                '</div>')
+                '</div>' +
+                '<p style="padding-left: 240px;"><span style="font-size: 18px;">姓名：<input class="form-control-text form-control draggable" style="display: inline-block; width: 70px; height: 21px;" type="text" placeholder="请输入内容">&nbsp; &nbsp;时间：<input class="form-control-datetime-local form-control draggable" style="display: inline-block; width: 150px; height: 21px;" type="datetime-local"></span></p>')
         })
         editor.on('SetContent', (e) => {
             console.log('setcontent')
