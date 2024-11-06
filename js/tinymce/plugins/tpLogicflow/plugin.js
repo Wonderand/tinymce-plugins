@@ -90,7 +90,7 @@
         n.ui.registry.addToggleButton(t.registryName, {
           icon: t.registryName,
           tooltip: t.title,
-          text: t.title,
+          // text: t.title,
           onSetup: g(n, ["*[data-tp-logicflow]"]),
           onAction: function () {
             return c(n, t)

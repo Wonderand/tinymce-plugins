@@ -9,9 +9,10 @@ const TestPlugin = (ed, url) => {
 tinymce.PluginManager.add('test', TestPlugin);
 tinymce.ScriptLoader.load('somescript.js');
 tinymce.init({
+    external_plugins: { 'tiny_mce_wiris': './mathtype-tinymce6/plugin.min.js' },
     selector: '#editor',
-    plugins: 'test tpLogicflow preview powerpaste casechange import_word importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link math media mediaembed codesample table charmap pagebreak nonbreaking anchor tableofcontents insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker editimage help formatpainter permanentpen pageembed charmap tinycomments mentions quickbars linkchecker emoticons advtable footnotes mergetags autocorrect typography advtemplate markdown revisionhistory kityformula-editor mathjax indent2em',
-    toolbar: 'undo redo | tpLogicflow revisionhistory tableofcontents permanentpen | aidialog aishortcuts | blocks fontsizeinput | bold italic | align numlist bullist | link image | table math kityformula-editor media pageembed | lineheight indent2em outdent indent | strikethrough forecolor backcolor formatpainter removeformat | charmap emoticons checklist | code fullscreen preview | save print import_word | pagebreak anchor codesample footnotes mergetags | addtemplate inserttemplate | addcomment showcomments | ltr rtl casechange | spellcheckdialog a11ycheck', // Note: if a toolbar item requires a plugin, the item will not present in the toolbar if the plugin is not also loaded.
+    plugins: 'test tpLogicflow preview powerpaste casechange import_word importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link math media mediaembed codesample table charmap pagebreak lineheight letterspacing nonbreaking anchor tableofcontents insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker editimage help formatpainter permanentpen pageembed charmap tinycomments mentions quickbars linkchecker emoticons advtable footnotes mergetags autocorrect typography advtemplate markdown revisionhistory kityformula-editor mathjax indent2em',
+    toolbar: 'tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry undo redo myMenuButton | tpLogicflow revisionhistory tableofcontents permanentpen | aidialog aishortcuts | blocks fontsizeinput | bold italic | align numlist bullist | link image | table math kityformula-editor media pageembed | lineheight letterspacing indent2em outdent indent | strikethrough forecolor backcolor formatpainter removeformat | charmap emoticons checklist | code fullscreen preview | save print import_word | pagebreak anchor codesample footnotes mergetags | addtemplate inserttemplate | addcomment showcomments | ltr rtl casechange | spellcheckdialog a11ycheck', // Note: if a toolbar item requires a plugin, the item will not present in the toolbar if the plugin is not also loaded.
     language: 'zh_CN',
     skin: 'fabric',
     content_css: 'fabric',
@@ -33,7 +34,7 @@ tinymce.init({
     toolbar_sticky: true, // 粘性工具栏
     toolbar_persist: true, // 持久工具栏
     help_accessibility: false, // 帮助访问性
-    // object_resizing: false, // 禁用内容编辑器中的对象调整大小。
+    object_resizing: false, // 禁用内容编辑器中的对象调整大小。
     // save_enablewhendirty: false, //允许您禁用保存按钮，直到对编辑器的内容进行修改。
     // placeholder: '在这里输入文字',
     valid_elements: '*[*]',  // 允许所有标签
@@ -47,6 +48,31 @@ tinymce.init({
     },
     quickbars_selection_toolbar: 'bold italic | blocks | quicklink blockquote identselect', // 添加到快速按钮栏
     setup: (editor) => {
+
+        // 注册一个菜单按钮
+        editor.ui.registry.addMenuButton('myMenuButton', {
+            text: '自定义菜单',
+            fetch: (callback) => {
+                callback([
+                    { type: 'menuitem', text: '选项 1', onAction: () => console.log('选项 1 被点击') },
+                    { type: 'menuitem', text: '选项 2', onAction: () => console.log('选项 2 被点击') }
+                ]);
+            },
+            onSetup: (api) => {
+                // 根据特定条件设置初始选中状态
+                const isActive = true; // 假设这个值代表当前选中的逻辑
+                api.setActive(isActive);
+
+                // 监听事件更新状态
+                editor.on('NodeChange', () => {
+                    const condition = editor.selection.getNode().nodeName === 'H1'; // 示例：如果当前节点是 H1
+                    api.setActive(condition);
+                });
+
+                // 返回清理函数（可选）
+                return () => editor.off('NodeChange');
+            }
+        });
         editor.on('init', () => {
             console.log('init')
             fetch(baseUrl + '/api/notToken')  // 异步获取内容

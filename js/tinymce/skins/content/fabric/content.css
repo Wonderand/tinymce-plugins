@@ -892,7 +892,7 @@ hr {
     position: relative;
   }
   
-  body::before {
+  #tinymce::before {
     content: '';
     position: absolute;
     padding: 10px;
@@ -907,7 +907,7 @@ hr {
     background-position: -54px -10px;
   }
   
-  body::after {
+  #tinymce::after {
     content: '';
     position: absolute;
     padding: 10px;
