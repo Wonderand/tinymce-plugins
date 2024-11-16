@@ -13,110 +13,202 @@ tinymce.PluginManager.add('form-drag-and-drop', function (editor, url) {
         width: 300,
         height: 40,
     }
-    var openDialog = function (val) {
-        return editor.windowManager.open({
-            title: "编辑输入框",
-            body: {
-                type: 'panel',
-                items: [
-                    // 宽度
-                    {
-                        type: 'input',
-                        name: 'width',
-                        label: '宽度（px）',
-                        inputMode: 'numeric',
-                        pattern: '[0-9]*',
-                        placeholder: '请输入宽度',
-                    },
-                    // 高度
-                    {
-                        type: 'input',
-                        name: 'height',
-                        label: '高度（px）',
-                        inputMode: 'numeric',
-                        pattern: '[0-9]*',
-                        placeholder: '请输入高度',
-                    },
-                    // 类型
-                    {
-                        type: 'selectbox',
-                        name: 'type',
-                        label: '类型',
-                        items: [
-                            { text: '文本框', value: 'text' },
-                            { text: '密码框', value: 'password' },
-                            { text: '日期框', value: 'date' },
-                            { text: '时间框', value: 'time' },
-                            { text: '日期时间框', value: 'datetime-local' },
-                            { text: '文件框', value: 'file' },
-                            { text: '隐藏框', value: 'hidden' },
-                            { text: '提交按钮', value: 'submit' },
-                        ]
-                    }
-                ]
-            },
-            initialData: {
-                width: val.width,
-                height: val.height,
-                type: val.type,
-            },
-            buttons: [
-                {
-                    type: 'cancel',
-                    text: '取消'
+    var openDialog = function (val, type) {
+        if (type === 'input') {
+            return editor.windowManager.open({
+                title: "编辑输入框",
+                body: {
+                    type: 'panel',
+                    items: [
+                        // 宽度
+                        {
+                            type: 'input',
+                            name: 'width',
+                            label: '宽度（px）',
+                            inputMode: 'numeric',
+                            pattern: '[0-9]*',
+                            placeholder: '请输入宽度',
+                        },
+                        // 高度
+                        {
+                            type: 'input',
+                            name: 'height',
+                            label: '高度（px）',
+                            inputMode: 'numeric',
+                            pattern: '[0-9]*',
+                            placeholder: '请输入高度',
+                        },
+                        // 类型
+                        {
+                            type: 'selectbox',
+                            name: 'type',
+                            label: '类型',
+                            items: [
+                                {text: '文本框', value: 'text'},
+                                {text: '密码框', value: 'password'},
+                                {text: '日期框', value: 'date'},
+                                {text: '时间框', value: 'time'},
+                                {text: '日期时间框', value: 'datetime-local'},
+                                {text: '文件框', value: 'file'},
+                                {text: '隐藏框', value: 'hidden'},
+                                {text: '提交按钮', value: 'submit'},
+                            ]
+                        }
+                    ]
                 },
-                {
-                    type: 'submit',
-                    text: '确定'
-                }
-            ],
-            onSubmit: (api) => {
-                const data = api.getData();
-                const width = data.width;
-                const height = data.height;
-                const type = data.type;
-                let className = 'form-control-' + type;
-                // 检验宽度和高度是否合法
-                // 正则表达式校验
-                // 如果宽度和高度不为空，则进行正则表达式校验，否则就是默认值
-                if (width !== '' || height !== ''){
-                    console.log('宽度:', width, '高度:', height)
-                    const validDimension = /^[0-9]+(px|em|%|rem|vw|vh)$/;
-                    let isValid = true;
-                    if (!validDimension.test(width)) {
-                        isValid = false;
-                        tinymce.activeEditor.windowManager.alert('请输入有效的宽度');
-                        return;
+                initialData: {
+                    width: val.width,
+                    height: val.height,
+                    type: val.type,
+                },
+                buttons: [
+                    {
+                        type: 'cancel',
+                        text: '取消'
+                    },
+                    {
+                        type: 'submit',
+                        text: '确定'
                     }
-                    if (!validDimension.test(height)) {
-                        isValid = false;
-                        tinymce.activeEditor.windowManager.alert('请输入有效的高度');
-                        return;
+                ],
+                onSubmit: (api) => {
+                    const data = api.getData();
+                    const width = data.width;
+                    const height = data.height;
+                    const type = data.type;
+                    let className = 'form-control-' + type;
+                    // 检验宽度和高度是否合法
+                    // 正则表达式校验
+                    // 如果宽度和高度不为空，则进行正则表达式校验，否则就是默认值
+                    if (width !== '' || height !== '') {
+                        console.log('宽度:', width, '高度:', height)
+                        const validDimension = /^[0-9]+(px|em|%|rem|vw|vh)$/;
+                        let isValid = true;
+                        if (!validDimension.test(width)) {
+                            isValid = false;
+                            tinymce.activeEditor.windowManager.alert('请输入有效的宽度');
+                            return;
+                        }
+                        if (!validDimension.test(height)) {
+                            isValid = false;
+                            tinymce.activeEditor.windowManager.alert('请输入有效的高度');
+                            return;
+                        }
+                        if (!isValid) {
+                            return;
+                        }
                     }
-                    if (!isValid) {
-                        return;
-                    }
-                }
 
-                // 创建新的表单元素
-                let newElement = document.createElement('input');
-                newElement.setAttribute('type', type);
-                newElement.setAttribute('style', 'display: inline-block');
-                newElement.setAttribute('class', `${className} form-control draggable`);
-                if (type === 'text'){
-                    newElement.setAttribute('placeholder', '请输入内容');
+                    // 创建新的表单元素
+                    let newElement = document.createElement('input');
+                    newElement.setAttribute('type', type);
+                    newElement.setAttribute('style', 'display: inline-block');
+                    newElement.setAttribute('class', `${className} form-control draggable`);
+                    if (type === 'text') {
+                        newElement.setAttribute('placeholder', '请输入内容');
+                    }
+                    newElement.style.width = width;
+                    newElement.style.height = height;
+                    // console.log('宽度:', width, '高度:', height);
+                    // 给选中元素设置宽度和高度
+                    // const selectedElement = editor.selection.getNode();
+                    // selectedElement.style.width = width;
+                    // selectedElement.style.height = height;
+                    editor.selection.getNode().outerHTML = newElement.outerHTML;
+                    api.close();
                 }
-                newElement.style.width = width;
-                newElement.style.height = height;
-                // console.log('宽度:', width, '高度:', height);
-                // 给选中元素设置宽度和高度
-                // const selectedElement = editor.selection.getNode();
-                // selectedElement.style.width = width;
-                // selectedElement.style.height = height;
-                editor.selection.getNode().outerHTML = newElement.outerHTML;
-                api.close();
-            }
-        });
+            });
+        } else if (type === 'textarea') {
+            return editor.windowManager.open({
+                title: "编辑文本框",
+                body: {
+                    type: 'panel',
+                    items: [
+                        // 宽度
+                        {
+                            type: 'input',
+                            name: 'width',
+                            label: '宽度（px）',
+                            inputMode: 'numeric',
+                            pattern: '[0-9]*',
+                            placeholder: '请输入宽度',
+                        },
+                        // 高度
+                        {
+                            type: 'input',
+                            name: 'height',
+                            label: '高度（px）',
+                            inputMode: 'numeric',
+                            pattern: '[0-9]*',
+                            placeholder: '请输入高度',
+                        },
+                        // 行数
+                        {
+                            type: 'input',
+                            name: 'rows',
+                            label: '行数',
+                            inputMode: 'numeric',
+                            pattern: '[0-9]*',
+                            placeholder: '请输入行数',
+                        },
+                        // 列数
+                        {
+                            type: 'input',
+                            name: 'cols',
+                            label: '列数',
+                            inputMode: 'numeric',
+                            pattern: '[0-9]',
+                            placeholder: '请输入列数',
+                        },
+                        // placeholder
+                        {
+                            type: 'input',
+                            name: 'placeholder',
+                            label: 'placeholder',
+                            placeholder: '请输入placeholder',
+                        },
+                    ]
+                },
+                initialData: {
+                    width: val.width,
+                    height: val.height,
+                    rows: val.rows,
+                    cols: val.cols,
+                    placeholder: val.placeholder,
+                },
+                buttons: [
+                    {
+                        type: 'cancel',
+                        text: '取消'
+                    },
+                    {
+                        type: 'submit',
+                        text: '确定'
+                    }
+                ],
+                onSubmit: (api) => {
+                    const data = api.getData();
+                    const width = data.width;
+                    const height = data.height;
+                    const placeholder = data.placeholder;
+                    const rows = data.rows;
+                    const cols = data.cols;
+                    const className = 'form-control-Textarea';
+                    console.log('宽度:', width, '高度:', height, 'placeholder:', placeholder, '行数:', rows, '列数:', cols);
+                    // 创建一个文本域
+                    const newElement = document.createElement('textarea');
+                    newElement.setAttribute('style', 'display: inline-block');
+                    newElement.setAttribute('class', `${className} form-control draggable`);
+                    newElement.setAttribute('placeholder', placeholder);
+                    newElement.style.width = width;
+                    newElement.style.height = height;
+                    newElement.setAttribute('rows', rows);
+                    newElement.setAttribute('cols', cols);
+                    editor.selection.getNode().outerHTML = newElement.outerHTML;
+                    api.close();
+                }
+            });
+        }
     }
     // 插件初始化时，创建拖拽按钮
     editor.on('init', function () {
@@ -146,7 +238,6 @@ tinymce.PluginManager.add('form-drag-and-drop', function (editor, url) {
             editor.insertContent('<input type="text" style="display: inline-block " placeholder="请输入内容" class="form-control-text form-control draggable" />');
         }
     });
-
     editor.ui.registry.addContextToolbar('dragInput', {
         predicate: function (node) {
             // console.log(node)
@@ -168,8 +259,40 @@ tinymce.PluginManager.add('form-drag-and-drop', function (editor, url) {
             dialog.width = width
             dialog.height = height
             dialog.type = selectedElement.type
-            console.log(selectedElement,dialog)
-            openDialog(dialog)
+            console.log(selectedElement, dialog)
+            openDialog(dialog, 'input')
+        }
+    })
+    // 添加文本域按钮
+    editor.ui.registry.addButton('dragTextarea', {
+        text: 'Textarea',
+        onAction: function () {
+            editor.insertContent('<textarea class="form-control-Textarea form-control draggable" style="display: inline-block" placeholder="输入文本。"></textarea>');
+        }
+    });
+    editor.ui.registry.addContextToolbar('dragTextarea', {
+        predicate: function (node) {
+            return node.nodeName.toLowerCase() === 'textarea' && node.classList.contains('form-control');
+        },
+        items: 'upTextarea',
+        position: 'node',
+        scope: 'node',
+    })
+    editor.ui.registry.addButton('upTextarea', {
+        text: '编辑',
+        onAction: function () {
+            console.log("点击编辑")
+            const selectedElement = editor.selection.getNode();
+            // 获取选中的元素的宽度和高度
+            const width = selectedElement.style.width;
+            const height = selectedElement.style.height;
+            const placeholder = selectedElement.getAttribute('placeholder');
+            dialog.width = width
+            dialog.height = height
+            dialog.placeholder = placeholder
+            dialog.rows = selectedElement.getAttribute('rows')
+            dialog.cols = selectedElement.getAttribute('cols')
+            openDialog(dialog, 'textarea')
         }
     })
 
@@ -201,20 +324,12 @@ tinymce.PluginManager.add('form-drag-and-drop', function (editor, url) {
         }
     });
 
-    editor.ui.registry.addButton('dragTextarea', {
-        text: 'Textarea',
-        onAction: function () {
-            editor.insertContent('<textarea class="draggable" style="width: 100%; height: 100px;"></textarea>');
-        }
-    });
-
     editor.ui.registry.addButton('dragButton', {
         text: 'Button',
         onAction: function () {
             editor.insertContent('<button class="draggable">按钮</button>');
         }
     });
-
 
 
     // 添加选中元素的缩放句柄

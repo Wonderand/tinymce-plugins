@@ -4,7 +4,6 @@ const TestPlugin = (ed, url) => {
         // ed.windowManager.alert('Hello World!');
     });
 };
-
 // 使用添加方法注册插件
 tinymce.PluginManager.add('test', TestPlugin);
 tinymce.ScriptLoader.load('somescript.js');
@@ -12,8 +11,8 @@ tinymce.init({
     selector: '#editor',
     // plugins: 'test preview powerpaste casechange import_word importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link math media mediaembed codesample table charmap pagebreak nonbreaking anchor tableofcontents insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker editimage help formatpainter permanentpen pageembed charmap tinycomments mentions quickbars linkchecker emoticons advtable footnotes mergetags autocorrect typography advtemplate markdown revisionhistory kityformula-editor mathjax indent2em',
     // toolbar: 'undo redo | revisionhistory tableofcontents permanentpen | aidialog aishortcuts | blocks fontsizeinput | bold italic | align numlist bullist | link image | table math kityformula-editor media pageembed | lineheight indent2em outdent indent | strikethrough forecolor backcolor formatpainter removeformat | charmap emoticons checklist | code fullscreen preview | save print import_word | pagebreak anchor codesample footnotes mergetags | addtemplate inserttemplate | addcomment showcomments | ltr rtl casechange | spellcheckdialog a11ycheck', // Note: if a toolbar item requires a plugin, the item will not present in the toolbar if the plugin is not also loaded.
-    plugins: 'advcode preview form-drag-and-drop numlist bullist wordcount',
-    toolbar: 'undo redo blocks fontsizeinput | bold italic | alignleft aligncenter alignright alignjustify numlist bullist outdent indent code preview|dragCheckbox dragRadio dragInput dragSelect |saveContent',
+    plugins: 'advcode preview form-drag-and-drop wordcount',
+    toolbar: 'undo redo blocks fontsizeinput | bold italic | alignleft aligncenter alignright alignjustify| numlist bullist print |outdent indent code preview|dragCheckbox dragRadio dragInput dragTextarea dragSelect |saveContent',
     language: 'zh_CN',
     skin: 'fabric',
     content_css: ['fabric',
@@ -26,6 +25,7 @@ tinymce.init({
     tinycomments_mode: 'embedded',
     revisionhistory_display_author: true,
     branding: false,
+    license_key: 'gpl',
     statusbar: true, // 状态栏
     // highlight_on_focus: true, // 聚焦时高亮
     // link_context_toolbar: true, // 链接工具栏
@@ -56,7 +56,7 @@ tinymce.init({
             //         let content = JSON.parse(data)
             //         editor.setContent(content.data); // 动态设置内容
             //     });
-            editor.insertContent('<div class="dpu8C _2kCxD">\n' +
+            editor.setContent('<div class="dpu8C _2kCxD">\n' +
                 '    <p style="text-align: justify;"><span style="font-size: 18px;">据CCTV国际时讯消息，当地时间11月6日凌晨，在美国大选计票还在进行之中，共和党总统候选人特朗普登上佛罗里达州集会舞台开始讲话，宣布胜选。</span></p>\n' +
                 '</div>\n' +
                 '<div class="dpu8C _2kCxD " style="text-align: justify;">\n' +
@@ -91,7 +91,6 @@ tinymce.init({
                 while (currentNode && currentNode.parentNode.nodeName !== 'BODY') {
                     currentNode = currentNode.parentNode;
                 }
-                console.log(currentNode)
                 // 创建一个新的段落
                 const newParagraph = editor.dom.create('p', {}, '<br>');
                 // 将新段落插入到当前节点之后
